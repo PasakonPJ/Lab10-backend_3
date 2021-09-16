@@ -17,7 +17,7 @@ public class Bid {
 
     Long id;
     Integer amount;
-    LocalDateTime dateTime;
+    String dateTime;
     @ManyToOne
     AuctionItem auctionitem;
 

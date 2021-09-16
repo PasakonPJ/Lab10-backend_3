@@ -21,6 +21,7 @@ public class AuctionItem {
     @OneToOne
     Bid successfulBid;
     @OneToMany (mappedBy = "auctionitem")
-    List<Bid> bids;
+    @Builder.Default
+    List<Bid> bids =new ArrayList<>();
 
 }
