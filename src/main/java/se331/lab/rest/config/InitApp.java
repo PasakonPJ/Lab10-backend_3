@@ -29,41 +29,66 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         AuctionItem TempAuctionItem;
-        Bid b1, b2, b3, b4;
+        Bid TempBid;
         Organizer org1, org2, org3;
 
-        b1 = bidRepository.save(Bid.builder().amount(5).dateTime("2020-08-18").build());
-        b2 = bidRepository.save(Bid.builder().amount(1).dateTime("2021-12-25").build());
-        b3 = bidRepository.save(Bid.builder().amount(2).dateTime("2020-08-31").build());
-        b4 = bidRepository.save(Bid.builder().amount(3).dateTime("2021-07-23").build());
+////1/////
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
+        TempBid = bidRepository.save(Bid.builder().amount(5).dateTime("2020-08-18").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
 
         TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
-        b1.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.getBids().add(b1);
-        TempAuctionItem.setSuccessfulBid(b1);
+        TempBid = bidRepository.save(Bid.builder().amount(1).dateTime("2021-12-25").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
 
         TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
-        b2.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.setSuccessfulBid(b2);
-        TempAuctionItem.getBids().add(b2);
-        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
-        b3.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.setSuccessfulBid(b3);
-        TempAuctionItem.getBids().add(b3);
-
+        TempBid =bidRepository.save(Bid.builder().amount(2).dateTime("2020-08-31").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+/////2//////
 
         TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
-        b4.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.setSuccessfulBid(b4);
-        TempAuctionItem.getBids().add(b4);
+        TempBid= bidRepository.save(Bid.builder().amount(3).dateTime("2021-07-23").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+
         TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
-        b3.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.setSuccessfulBid(b3);
-        TempAuctionItem.getBids().add(b3);
+        TempBid= bidRepository.save(Bid.builder().amount(5).dateTime("2020-08-18").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+
         TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
-        b2.setAuctionitem(TempAuctionItem);
-        TempAuctionItem.setSuccessfulBid(b2);
-        TempAuctionItem.getBids().add(b2);
+        TempBid = bidRepository.save(Bid.builder().amount(2).dateTime("2020-08-31").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+
+        /////3//////
+
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch lovely tood").type("Dark age").build());
+        TempBid= bidRepository.save(Bid.builder().amount(1).dateTime("2021-12-25").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch lovely tood").type("Dark age").build());
+        TempBid= bidRepository.save(Bid.builder().amount(5).dateTime("2020-08-18").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
+
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch lovely tood ").type("Dark age").build());
+        TempBid = bidRepository.save(Bid.builder().amount(3).dateTime("2021-07-23").build());
+        TempBid.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(TempBid);
+        TempAuctionItem.getBids().add(TempBid);
 
 
 
