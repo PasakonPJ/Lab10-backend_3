@@ -28,24 +28,46 @@ public class InitApp implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     @Transactional
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        AuctionItem A1, A2, A3, A4, A5;
+        AuctionItem TempAuctionItem;
         Bid b1, b2, b3, b4;
         Organizer org1, org2, org3;
-
-        A1 = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
-        A2 = auctionItemRepository.save(AuctionItem.builder().description("The biggest golden stick").type("stick").build());
-        A3 = auctionItemRepository.save(AuctionItem.builder().description("The ancient necklace").type("silver").build());
-        A4 = auctionItemRepository.save(AuctionItem.builder().description("Weired slime").type("animal").build());
-        A5 = auctionItemRepository.save(AuctionItem.builder().description("Limited slime").type("book").build());
 
         b1 = bidRepository.save(Bid.builder().amount(5).dateTime("2020-08-18").build());
         b2 = bidRepository.save(Bid.builder().amount(1).dateTime("2021-12-25").build());
         b3 = bidRepository.save(Bid.builder().amount(2).dateTime("2020-08-31").build());
         b4 = bidRepository.save(Bid.builder().amount(3).dateTime("2021-07-23").build());
 
-        A1.getBids().add(b1);
-        A1.getBids().add(b2);
-        A1.getBids().add(b3);
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
+        b1.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.getBids().add(b1);
+        TempAuctionItem.setSuccessfulBid(b1);
+
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
+        b2.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(b2);
+        TempAuctionItem.getBids().add(b2);
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch me if u can").type("gold").build());
+        b3.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(b3);
+        TempAuctionItem.getBids().add(b3);
+
+
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
+        b4.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(b4);
+        TempAuctionItem.getBids().add(b4);
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
+        b3.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(b3);
+        TempAuctionItem.getBids().add(b3);
+        TempAuctionItem = auctionItemRepository.save(AuctionItem.builder().description("catch fish babe").type("silver").build());
+        b2.setAuctionitem(TempAuctionItem);
+        TempAuctionItem.setSuccessfulBid(b2);
+        TempAuctionItem.getBids().add(b2);
+
+
+
+
 
         org1 = organizerRepository.save(Organizer.builder()
                 .name("CAMT").build());

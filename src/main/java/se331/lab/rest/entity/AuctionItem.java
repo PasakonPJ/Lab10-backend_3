@@ -18,10 +18,10 @@ public class AuctionItem {
     Long id;
     String description;
     String type;
-    @OneToOne
-    Bid successfulBid;
     @OneToMany (mappedBy = "auctionitem")
     @Builder.Default
     List<Bid> bids =new ArrayList<>();
 
+    @OneToOne
+    Bid successfulBid;
 }
